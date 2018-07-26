@@ -5,13 +5,15 @@
     <style>
       #canvas {
         display: block;
-        width: 90%;
+        width: 300px;
+        height: 169px;
         margin: 0 auto;
         border: 1px solid blue;
       }
       #video {
         display: block;
-        width: 90%;
+        width: 300px;
+        height: 169px;
         margin: 1em auto;
         border: 1px solid green;
       }
@@ -42,7 +44,7 @@ function mouseClick(e) {
 }
 
 function draw() {
-    context.drawImage(video, 0, 0, 500, 300);
+    context.drawImage(video, 0, 0, 300, 169);
     setTimeout(draw, 50);
 }
     </script>
