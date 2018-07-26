@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Video to Canvas</title>
+    <style>
+      #canvas {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        border: 1px solid blue;
+      }
+      #video {
+        display: block;
+        width: 90%;
+        margin: 1em auto;
+        border: 1px solid green;
+      }
+      p {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <video id="video"></video>
+    <p>Tap in the blue box (the canvas) to start.</p>
+    <script>
+var canvas, context;
+var video = document.getElementById("video");
+
+canvas = document.getElementById("canvas");
+context = canvas.getContext("2d");
+canvas.addEventListener("click", mouseClick);
+
+
+function mouseClick(e) {
+  video.src = "https://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_2mb.mp4";
+  video.addEventListener('loadeddata', function() {
+    video.play();
+    draw();
+  });
+}
+
+function draw() {
+    context.drawImage(video, 0, 0, 500, 300);
+    setTimeout(draw, 50);
+}
+    </script>
+  </body>
+</html>
+  
